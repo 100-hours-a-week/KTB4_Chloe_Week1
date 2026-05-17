@@ -71,6 +71,7 @@ public class Library {
             BookListViewForm();
         }
     }
+
     public static void BookListViewPaper(){
         Scanner scanner = new Scanner(System.in);
 
@@ -113,12 +114,15 @@ public class Library {
         switch (UserSelectElectronicField){
             case 1:
                 workBooks[0].BookList();
+                break;
             case 2:
                 cartoonBooks[0].BookList();
                 cartoonBooks[1].BookList();
+                break;
             default:
                 System.out.println("번호를 다시 선택해주세요.");
                 BookListViewElectronic();
+                break;
         }
     }
 
