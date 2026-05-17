@@ -43,7 +43,7 @@
 
 ---
 
-### BookLoan
+### BookLoan 클래스
 
 - `ReturnPeriod` 변수는 변하지 않는 값이기 때문에, `static`으로 선언
 
