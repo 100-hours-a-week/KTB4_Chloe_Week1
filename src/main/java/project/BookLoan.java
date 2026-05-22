@@ -2,17 +2,25 @@ package project;
 import java.util.Scanner;
 
 public class BookLoan {
-    static int ReturnPeriod = 7; //도서관 반납 일자
+    int ReturnPeriod = 7; //도서관 반납 일자
     public void BookLoan(){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("대여하실 책의 권수를 입력해주세요.(최대:3개)");
-        int LoanBooks = scanner.nextInt();
-        scanner.nextLine(); // 남아있는 엔터 제거
+        boolean BookLoanCheck = false;
+        int LoanBooks =0;
+        while(!BookLoanCheck){
 
-        if(LoanBooks >=4){
+            System.out.println("대여하실 책의 권수를 입력해주세요.(최대:3개)");
+            LoanBooks= scanner.nextInt();
+            scanner.nextLine(); // 남아있는 엔터 제거
+
+            if(LoanBooks >0 && LoanBooks<4){
+                BookLoanCheck = true;
+                continue;
+            }
+
             System.out.println("4권이상 대여하실 수 없습니다.");
-            BookLoan();
         }
+
 
         String[] booknames = new String[LoanBooks];
 
