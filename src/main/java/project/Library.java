@@ -29,7 +29,7 @@ public class Library {
 
             switch ( UserSelectWork ){
                 case 1 :
-                    bookListView.BookListViewForm();
+                    bookListView.BookListViewCategory();
                     break;
                 case 2 :
                     bookLoan.BookLoan();

@@ -2,6 +2,10 @@ package project.BookFolder;
 
 public class Book {
     String BookName ;
+    String BookForm;
+
+    boolean isBookLoaned = false; // 책 대출 유무
+    int ReturnPeriod = 7; // 책 반납 기한
 
     public enum BookCategory {
         Literature("문학"),
@@ -22,21 +26,18 @@ public class Book {
         }
     }
 
-    BookCategory bookCategory;
 
-
-
-
-    boolean isBookLoaned = false; // 책 대출 유무
-
-    int ReturnPeriod = 7; // 책 반납 기한
-
-    public Book(String BookName) {
+    public Book(String BookName, String bookform) {
         this.BookName = BookName;
+        this.BookForm = bookform;
     }
 
-    public void BookList(){
-        System.out.println(BookName);
+    public void BookNamePrint(){
+        System.out.print(BookName);
+
+    }
+    public void BookFormPrint(){
+        System.out.println("(" + BookForm + "책)");
     }
 
 

@@ -1,12 +1,12 @@
 package project.BookFolder;
 
 public class EBook extends Book {
-    static String BookForm = "전자";
+    static final String BookForm = "전자";
     String BookDownload ; //책 다운 링크
 
 
     public EBook(String BookName) {
-        super(BookName);
+        super(BookName,BookForm);
     }
 
     void BookAuthority(){

@@ -7,7 +7,7 @@ public class PaperBook extends Book {
     int TotalBooks; // 책 개수
 
     public PaperBook(String BookName,int totalBooks, String bookLocation){
-        super(BookName);
+        super(BookName,BookForm);
         this.TotalBooks = totalBooks;
         this.BookLocation = bookLocation;
     }
