@@ -1,24 +1,33 @@
 package project;
 
+import project.BookFolder.Book;
+
 import java.util.Scanner;
 
 public class BookListView {
 
      BookList bookList = new BookList();
     //예외 처리 필요
-    public void BookListViewForm(){
+    public void BookListViewCategory(){
         bookList.BookListCreate();
         Scanner scanner = new Scanner(System.in);
-        String PaperBook = "1.종이책";
-        String EBook = "2.전자책";
-        int UserSelectForm;
+        int BookCategoryNum = 1; //카테고리별 번호
 
-        boolean BookFormCheck = false;
+        int UserSelectForm; // 사용자가 입력할 번호
+
+        boolean BookFormCheck = false; //while 문 체크
+
         while(!BookFormCheck){
 
-            System.out.println(PaperBook);
-            System.out.println(EBook);
-            System.out.println("번호를 선택해주세요.");
+            System.out.println("----책 카테고리----");
+
+            //책 카테고리 순회
+            for (Book.BookCategory key : bookList.books.keySet()) {
+                System.out.println(BookCategoryNum + "." + key);
+                BookCategoryNum++;
+            }
+            System.out.println("책 카테고리 번호를 선택해주세요.");
+
             UserSelectForm = scanner.nextInt();
 
             if( UserSelectForm == 1){
