@@ -9,9 +9,17 @@ public class EBook extends Book {
         super(BookName,BookForm);
     }
 
+    @Override
+    public void BookLoan() {
+        this.BookAuthority();
+
+        super.BookLoan();
+    };
+
     void BookAuthority(){
         // BookDownLoad 생성
         // 일정 시간이 지나면 isBookLoaned = false로 변경
         // 그리고 생성한 BookDownLoad 객체 버리기
     }
+
 }

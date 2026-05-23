@@ -26,6 +26,10 @@ public class Book {
         }
     }
 
+    public String BookGetName(){
+        return this.BookName;
+    }
+
 
     public Book(String BookName, String bookform) {
         this.BookName = BookName;
@@ -38,6 +42,10 @@ public class Book {
     }
     public void BookFormPrint(){
         System.out.println("(" + BookForm + "책)");
+    }
+
+    public void BookLoan(){
+        //System.out.print("책 대출이 완료되었습니다.");
     }
 
 

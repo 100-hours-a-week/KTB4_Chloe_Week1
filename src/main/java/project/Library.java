@@ -32,7 +32,7 @@ public class Library {
                     bookListView.BookListViewCategory();
                     break;
                 case 2 :
-                    bookLoan.BookLoan();
+                    bookLoan.LibraryLoan();
                     break;
                 case 3 :
                     System.out.print("도서관 시스템을 종료합니다.");

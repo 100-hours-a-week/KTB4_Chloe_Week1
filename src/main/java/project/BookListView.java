@@ -25,7 +25,7 @@ public class BookListView {
 
             //책 카테고리 순회
             for (int i = 0; i < bookList.CategoryList.size(); i++) {
-                System.out.println( i+1 +"."+ bookList.CategoryList.get(i));
+                System.out.println( i+1 +"."+ bookList.CategoryList.get(i).getKorean());
             }
 
 

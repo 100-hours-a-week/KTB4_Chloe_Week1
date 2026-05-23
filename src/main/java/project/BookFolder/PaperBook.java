@@ -12,15 +12,26 @@ public class PaperBook extends Book {
         this.BookLocation = bookLocation;
     }
 
+    void BookDecrease(){
+        //책 권수 감소
+    }
+
+    void BookIncrease(){
+        //책 권수 증가
+    }
+
+    @Override
+    public void BookLoan() {
+        this.BookDecrease();
+        super.BookLoan();
+    }
+
 
     void returnBook(String bookName){
         //책 이름 확인하고
         // 해당 객체에 있는 isBookLoaned = false 로 뱐경
         System.out.println("반납이 완료 되었습니다. ");
     }
-
-
-
 
 
 }
