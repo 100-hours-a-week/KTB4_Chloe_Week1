@@ -4,8 +4,6 @@ public class Book {
     String BookName ;
     String BookForm;
 
-    boolean isBookLoaned = false; // 책 대출 유무
-    int ReturnPeriod = 7; // 책 반납 기한
 
     public enum BookCategory {
         Literature("문학"),
@@ -40,13 +38,25 @@ public class Book {
         System.out.print(BookName);
 
     }
-    public void BookFormPrint(){
-        System.out.println("(" + BookForm + "책)");
+
+    public void BookStatusPrint(){
+        System.out.print("(" + BookForm + "책");
+    }
+
+    public boolean isLoanAvailable(){
+        return true;
     }
 
     public void BookLoan(){
-        //System.out.print("책 대출이 완료되었습니다.");
+        System.out.println(this.BookName+ " 책이 대출되었습니다.");
     }
+
+    public void BookReturn(){
+        System.out.println(this.BookName + " 책이 반납되었습니다.");
+    }
+
+
+
 
 
 

@@ -21,29 +21,34 @@ public class BookListView {
 
         while(!BookFormCheck){
 
-            System.out.println("----책 카테고리----");
+            System.out.println("======== 책 카테고리 ========");
 
-            //책 카테고리 순회
             for (int i = 0; i < bookList.CategoryList.size(); i++) {
-                System.out.println( i+1 +"."+ bookList.CategoryList.get(i).getKorean());
+                System.out.println((i + 1) + "." + bookList.CategoryList.get(i).getKorean());
             }
-
 
             System.out.println("책 카테고리 번호를 선택해주세요.");
-            UserSelectCategoryNum = scanner.nextInt();
 
-            for (int i = 0; i < bookList.CategoryList.size(); i++) {
-                if(UserSelectCategoryNum == i+1){
-                    UserSelectCategory =  bookList.CategoryList.get(i);
-                    BookFormCheck = true;
-                    break;
+            try{
+                UserSelectCategoryNum = scanner.nextInt();
+                scanner.nextLine();
+                for (int i = 0; i < bookList.CategoryList.size(); i++) {
+                    if(UserSelectCategoryNum == i + 1){
+                        UserSelectCategory = bookList.CategoryList.get(i);
+                        BookFormCheck = true;
+                        break;
+                    }
                 }
-            }
-            if(BookFormCheck){
-                continue;
-            }
 
-            System.out.println("번호를 다시 선택해주세요.");
+                if(!BookFormCheck){
+                    System.out.println("번호를 다시 선택해주세요.");
+                }
+
+            }
+            catch (Exception e){
+                System.out.println("숫자만 입력해주세요.");
+                scanner.nextLine(); // 잘못된 입력 제거
+            }
         }
 
         //값 자체가 ArryList 타입!
@@ -58,7 +63,7 @@ public class BookListView {
             System.out.print((i + 1) + ".");
             book.BookNamePrint();
             System.out.print(" ");
-            book.BookFormPrint();
+            book.BookStatusPrint();
         }
 
     }

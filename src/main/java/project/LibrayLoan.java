@@ -2,18 +2,19 @@ package project;
 
 import project.BookFolder.Book;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Scanner;
 
-public class BookLoan {
+import static project.Main.bookList;
 
-    BookList bookList = new BookList();
 
-    //도서관 반납 일자
+public class LibrayLoan {
+
+    //도서관 반납
     public void LibraryLoan() {
-        bookList.BookListCreate();
+
+         // 책 반납 기한
         Scanner scanner = new Scanner(System.in);
         int LoanBookCount; //대출할 책의 개수
         String[] LoanBookNames;  //대출할 책 이름 -> 데이터에 있는지 비교
@@ -44,13 +45,16 @@ public class BookLoan {
                     break;
                 }
 
-                System.out.println("책이 존재하지 않습니다. 다시 입력해주세요");
+                System.out.println("다시 입력해주세요");
 
             }
         }
 
-       //대출한 책 목록
+        //대출한 책 목록
         LoanedBookList(LoanBookNames,LoanBookCount);
+        //반납 안내
+        ReturnInfo();
+
 
 
     }
@@ -62,11 +66,12 @@ public class BookLoan {
             for(Book book : booklist){
                 if(Objects.equals(book.BookGetName(), loanbookname)){
                     System.out.println(loanbookname+" 선택완료");
-                    return true;
+                    return book.isLoanAvailable();
                 }
             }
         }
-
+        System.out.println("책이 존재하지 않습니다.");
+        System.out.println("==========================");
         return false;
     }
 
@@ -74,21 +79,31 @@ public class BookLoan {
     void LoanedBookList(String[] loanbooks,int loanbookcount){
 
         System.out.println();
-        System.out.println("--대출 책 목록--");
+        System.out.println("======== 대출 책 목록 ========");
         for( List<Book> booklist : bookList.books.values()){
             for(Book book : booklist){
                 for(int i=0; i<loanbookcount; i++){
                     if(book.BookGetName().equals(loanbooks[i])){
                         book.BookNamePrint();
                         System.out.print(" ");
-                        book.BookFormPrint();
+                        book.BookStatusPrint();
                         book.BookLoan(); // 대출 로직 실행
                     }
                 }
 
             }
         }
+        System.out.println("==========================");
         System.out.println("책 대출이 완료되었습니다.");
         System.out.println();
+    }
+
+    //반납 안내
+    void ReturnInfo(){
+
+        int ReturnPeriod = 7;
+        System.out.println("[ 반납안내 ]");
+        System.out.println("종이책 :"+ ReturnPeriod + "일 이내로 도서관에 반납해주세요");
+        System.out.println("전자책 : 이용 기간은 " + ReturnPeriod + "일 입니다.");
     }
 }
