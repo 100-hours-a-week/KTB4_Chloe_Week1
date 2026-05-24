@@ -38,7 +38,7 @@ public class Main {
                         allBooks.addAll(books);
                     }
                     // 랜덤 책 선택
-                    Book randomBook =  allBooks.get(random.nextInt(allBooks.size()));
+                    Book randomBook = allBooks.get(random.nextInt(allBooks.size()));
                     randomBook.BookNamePrint();
                     randomBook.BookStatusPrint();
                     System.out.println("대출 시작");
@@ -72,7 +72,13 @@ public class Main {
                         List<Book> allBooks = new ArrayList<>();
                         // map 안의 책 전부 추가
                         for(List<Book> books : bookList.books.values()){
-                            allBooks.addAll(books);
+
+                            for(Book book : books){
+
+                                if(book instanceof PaperBook){
+                                    allBooks.add(book);
+                                }
+                            }
                         }
                         // 랜덤 책 선택
                         Book randomBook =  allBooks.get(random.nextInt(allBooks.size()));
@@ -94,9 +100,9 @@ public class Main {
         }
 
         Runnable BookLoanTask= new BookLoanTask();
-        Thread loanthread = new Thread(BookLoanTask,"대출 사용자");
+        Thread loanthread = new Thread(BookLoanTask,"대출 사용자 ");
         Runnable BookReturnTask = new BookReturnTask();
-        Thread returnthread = new Thread(BookReturnTask,"반납 사용자");
+        Thread returnthread = new Thread(BookReturnTask,"반납 사용자 " );
 
         verify.VerifyCode(); //인증코드
 

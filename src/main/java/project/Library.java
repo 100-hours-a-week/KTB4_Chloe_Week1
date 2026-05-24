@@ -15,9 +15,7 @@ public class Library {
 
         LibrayLoan librayLoan = new LibrayLoan();
         LibraryReturn libraryReturn = new LibraryReturn();
-
         BookListView bookListView = new BookListView();
-
         Scanner scanner = new Scanner(System.in);
 
         while (!UserSelectCheck) {

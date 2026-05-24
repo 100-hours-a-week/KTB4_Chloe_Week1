@@ -2,6 +2,7 @@ package project;
 
 import project.BookFolder.Book;
 
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Scanner;
@@ -11,25 +12,35 @@ import static project.Main.bookList;
 
 public class LibrayLoan {
 
-    //도서관 반납
     public void LibraryLoan() {
 
-         // 책 반납 기한
         Scanner scanner = new Scanner(System.in);
         int LoanBookCount; //대출할 책의 개수
         String[] LoanBookNames;  //대출할 책 이름 -> 데이터에 있는지 비교
 
         while (true) {
 
-            System.out.println("대여하실 책의 권수를 입력해주세요.(최대:3개)");
-            LoanBookCount = scanner.nextInt();
-            scanner.nextLine(); // 남아있는 엔터 제거
+            try{
+                System.out.println("대여하실 책의 권수를 입력해주세요.(최대:3개)");
+                LoanBookCount = scanner.nextInt();
+                scanner.nextLine(); // 남아있는 엔터 제거
 
-            if (LoanBookCount > 0 && LoanBookCount < 4) {
-                break;
+                if (LoanBookCount > 0 && LoanBookCount < 4) {
+                    break;
+                }
+
+                throw new IllegalArgumentException();
+            }
+            catch (IllegalArgumentException e){
+                System.out.println("4권이상 대여하실 수 없습니다.");
+            }
+            catch (InputMismatchException e){
+                System.out.println("숫자를 입력해주세요.");
+                scanner.nextLine(); // 잘못된 입력 제거
             }
 
-            System.out.println("4권이상 대여하실 수 없습니다.");
+
+
         }
 
         LoanBookNames = new String[LoanBookCount];

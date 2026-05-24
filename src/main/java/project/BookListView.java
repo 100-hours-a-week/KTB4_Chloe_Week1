@@ -2,6 +2,7 @@ package project;
 
 import project.BookFolder.Book;
 
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -40,14 +41,15 @@ public class BookListView {
                     }
                 }
 
-                if(!BookFormCheck){
-                    System.out.println("번호를 다시 선택해주세요.");
-                }
+                throw new IllegalArgumentException();
 
             }
-            catch (Exception e){
+            catch (InputMismatchException e){
                 System.out.println("숫자만 입력해주세요.");
                 scanner.nextLine(); // 잘못된 입력 제거
+            }
+            catch(IllegalArgumentException e){
+                System.out.println("번호를 다시 선택해주세요.");
             }
         }
 

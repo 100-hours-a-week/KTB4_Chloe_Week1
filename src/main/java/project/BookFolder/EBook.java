@@ -11,24 +11,12 @@ public class EBook extends Book {
     }
 
     @Override
-    public boolean isLoanAvailable(){
-        return true;
-    }
-
-    @Override
     public void BookLoan() {
         System.out.println(Thread.currentThread().getName() + " 대출 시도");
 
         this.BookAuthority();
         super.BookLoan();
 
-
-
-    }
-
-    @Override
-    public void BookReturn(){
-         super.BookReturn();
     }
 
     @Override
@@ -39,8 +27,8 @@ public class EBook extends Book {
 
     void BookAuthority(){
         boolean isDownload = true;
-        // 일정 시간이 지나면 isBookLoaned = false로 변경
-        // 그리고 생성한 BookDownLoad 객체 버리기
+        // 일정 시간이 지나면 isDownload = false로 변경
+        // 그리고 생성한 BookDownLoad 객체 버리기 (접근이 불가 하도록)
     }
 
 }

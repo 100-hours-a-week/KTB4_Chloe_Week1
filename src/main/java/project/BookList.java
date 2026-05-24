@@ -23,8 +23,6 @@ public class BookList {
 
         CategoryList = new ArrayList<>(books.keySet());
 
-
-
         //map의 get() 메소드 중복을 제거하기 위해..
         List<Book> literature = books.get(Book.BookCategory.Literature);
         List<Book> economy = books.get(Book.BookCategory.Economy);

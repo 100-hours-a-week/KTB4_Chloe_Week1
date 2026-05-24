@@ -1,7 +1,7 @@
 package project.BookFolder;
 
 public class Book {
-    String BookName ;
+    protected String BookName ;
     String BookForm;
 
 
